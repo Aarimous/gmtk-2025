@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://deoi6jbum5xyq"]
+
+[ext_resource type="Texture2D" uid="uid://beo2yvjsmob6s" path="res://icon.svg" id="1_al867"]
+[ext_resource type="Script" uid="uid://cxsxtw04jwmox" path="res://Rocket.gd" id="1_g04ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al867"]
+size = Vector2(43, 42)
+
+[node name="Rocket" type="Area2D"]
+collision_layer = 2
+collision_mask = 29
+script = ExtResource("1_g04ui")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("1_al867")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_al867")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

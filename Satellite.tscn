@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7snm343b52de"]
+
+[ext_resource type="Script" uid="uid://ck1febcr1kqyg" path="res://Satellite.gd" id="1_aqyoa"]
+[ext_resource type="Texture2D" uid="uid://d2ojba0xqf110" path="res://Art/Satalite.png" id="1_c125l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c125l"]
+radius = 22.0227
+
+[node name="Satellite" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_aqyoa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c125l")
+
+[node name="Satalite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_c125l")

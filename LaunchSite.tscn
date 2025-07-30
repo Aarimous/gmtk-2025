@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxkhasqmio14c"]
+
+[ext_resource type="Texture2D" uid="uid://b1s5dy0eco5am" path="res://Art/Launch Site.png" id="1_658nm"]
+[ext_resource type="Script" uid="uid://d4gifsqvcco4b" path="res://LaunchSite.gd" id="1_aftpt"]
+[ext_resource type="PackedScene" uid="uid://deoi6jbum5xyq" path="res://Rocket.tscn" id="2_e0pyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_658nm"]
+size = Vector2(92.75, 88.5)
+
+[sub_resource type="Curve" id="Curve_e0pyi"]
+_data = [Vector2(0.242718, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.504186), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_87jc3"]
+offsets = PackedFloat32Array(0.360963, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="LaumchSite" type="Area2D"]
+script = ExtResource("1_aftpt")
+rocket_packed = ExtResource("2_e0pyi")
+
+[node name="Art" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_658nm")
+
+[node name="Grabbed Indicator" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_658nm")
+
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_658nm")
+
+[node name="TrajectoryLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+texture_repeat = 2
+points = PackedVector2Array(71, 10, 92, 71, -19, 82, -101, 41)
+width = 16.0
+width_curve = SubResource("Curve_e0pyi")
+gradient = SubResource("Gradient_87jc3")
+texture_mode = 1
+joint_mode = 2
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

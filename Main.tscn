@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://d07vsq073aw1x"]
+
+[ext_resource type="Script" uid="uid://do3axqud2fq71" path="res://Main.gd" id="1_fos0i"]
+[ext_resource type="PackedScene" uid="uid://b0x1c7e12vqqe" path="res://Earth.tscn" id="2_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://cxkhasqmio14c" path="res://LaunchSite.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://4go7v5duek0k" path="res://Orbit.tscn" id="4_fos0i"]
+[ext_resource type="PackedScene" uid="uid://b7snm343b52de" path="res://Satellite.tscn" id="5_fos0i"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_fos0i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Earth" parent="." instance=ExtResource("2_uu6xs")]
+
+[node name="LaumchSite" parent="Earth" instance=ExtResource("3_r0du0")]
+position = Vector2(0, -148)
+
+[node name="LaumchSite2" parent="Earth" instance=ExtResource("3_r0du0")]
+position = Vector2(1, 145)
+
+[node name="Rockets" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Orbit" parent="." instance=ExtResource("4_fos0i")]
+orbit_speed_scale = 2.0
+
+[node name="Satellite" parent="Orbit" instance=ExtResource("5_fos0i")]
+position = Vector2(-215, 0)
+
+[node name="Orbit2" parent="." instance=ExtResource("4_fos0i")]
+orbit_speed_scale = 1.5
+
+[node name="Satellite" parent="Orbit2" instance=ExtResource("5_fos0i")]
+position = Vector2(-329, -154)
+
+[node name="Satellite2" parent="Orbit2" instance=ExtResource("5_fos0i")]
+position = Vector2(258, 227)
+
+[node name="Orbit3" parent="." instance=ExtResource("4_fos0i")]
+is_clockwise = false
+
+[node name="Satellite" parent="Orbit3" instance=ExtResource("5_fos0i")]
+position = Vector2(-492, 1)
+
+[node name="Satellite2" parent="Orbit3" instance=ExtResource("5_fos0i")]
+position = Vector2(354, -185)
+
+[node name="Satellite3" parent="Orbit3" instance=ExtResource("5_fos0i")]
+position = Vector2(-141, -310)
+
+[node name="Satellite4" parent="Orbit3" instance=ExtResource("5_fos0i")]
+position = Vector2(-229, 331)
+
+[node name="Orbit4" parent="." instance=ExtResource("4_fos0i")]
+
+[node name="Satellite" parent="Orbit4" instance=ExtResource("5_fos0i")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-567, -167)
+
+[node name="Satellite2" parent="Orbit4" instance=ExtResource("5_fos0i")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-358, -334)
+
+[node name="Satellite3" parent="Orbit4" instance=ExtResource("5_fos0i")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(57, 459)
+
+[node name="Satellite4" parent="Orbit4" instance=ExtResource("5_fos0i")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(213, -346)
