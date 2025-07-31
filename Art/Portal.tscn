@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://eajufqwmmve7"]
+
+[ext_resource type="Script" uid="uid://c6mri3hwjjt51" path="res://Art/Portal.gd" id="1_h5fxf"]
+[ext_resource type="Texture2D" uid="uid://fthb0eamglgj" path="res://Art/Earth.png" id="2_ugr3q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5fxf"]
+radius = 38.0526
+
+[node name="Portal" type="Area2D"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_h5fxf")
+
+[node name="Earth" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ugr3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h5fxf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

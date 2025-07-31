@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj1bmf7s23ok"]
+
+[ext_resource type="Texture2D" uid="uid://b1s5dy0eco5am" path="res://Art/Launch Site.png" id="1_dqkwb"]
+[ext_resource type="Script" uid="uid://cebj64q7cduxj" path="res://Art/Trampoline.gd" id="1_psmj8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkwb"]
+size = Vector2(74, 212)
+
+[node name="Trampoline" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_psmj8")
+
+[node name="LaunchSite" type="Sprite2D" parent="."]
+scale = Vector2(1, 3)
+texture = ExtResource("1_dqkwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dqkwb")

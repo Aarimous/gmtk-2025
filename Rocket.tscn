@@ -1,24 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://deoi6jbum5xyq"]
+[gd_scene load_steps=6 format=3 uid="uid://deoi6jbum5xyq"]
 
 [ext_resource type="Texture2D" uid="uid://beo2yvjsmob6s" path="res://icon.svg" id="1_al867"]
 [ext_resource type="Script" uid="uid://cxsxtw04jwmox" path="res://Rocket.gd" id="1_g04ui"]
+[ext_resource type="Texture2D" uid="uid://fthb0eamglgj" path="res://Art/Earth.png" id="3_rful3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al867"]
 size = Vector2(43, 42)
 
-[node name="Rocket" type="Area2D"]
-collision_layer = 2
-collision_mask = 29
-script = ExtResource("1_g04ui")
+[sub_resource type="CircleShape2D" id="CircleShape2D_g04ui"]
+radius = 64.0
 
-[node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.33, 0.33)
-texture = ExtResource("1_al867")
+[node name="Rocket" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 60
+script = ExtResource("1_g04ui")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_al867")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[node name="Explosion AOE" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion AOE"]
+shape = SubResource("CircleShape2D_g04ui")
+
+[node name="Explosion Pivot" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ExplosionArt" type="Sprite2D" parent="Explosion Pivot"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.25098)
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("3_rful3")
+
+[node name="Icon" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("1_al867")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsel6so8h2qd0"]
+
+[ext_resource type="Script" uid="uid://b2fu5wr2esiy1" path="res://EnemyCounter.gd" id="1_kopop"]
+[ext_resource type="Theme" uid="uid://r2n3lh52w8wh" path="res://Theme.tres" id="2_wdp5a"]
+
+[node name="EnemyCounter" type="MarginContainer"]
+offset_right = 76.0
+offset_bottom = 99.0
+mouse_filter = 2
+script = ExtResource("1_kopop")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_wdp5a")
+theme_override_font_sizes/font_size = 48
+text = "X"
+horizontal_alignment = 1

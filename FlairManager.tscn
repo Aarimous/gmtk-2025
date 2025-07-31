@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://nbxs7vtryk05"]
+
+[ext_resource type="Script" uid="uid://dp5om14ywj60y" path="res://FlairManager.gd" id="1_2ejjl"]
+[ext_resource type="PackedScene" uid="uid://by3f2pmm86u3f" path="res://FloatingText.tscn" id="2_271eq"]
+
+[node name="FlairManager" type="Node2D"]
+script = ExtResource("1_2ejjl")
+floating_text_packed = ExtResource("2_271eq")

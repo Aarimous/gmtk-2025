@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://8tvo8ldmfb7w"]
+
+[ext_resource type="Script" uid="uid://bhrd5evclvhe8" path="res://Moon.gd" id="1_k8gyx"]
+[ext_resource type="Texture2D" uid="uid://fthb0eamglgj" path="res://Art/Earth.png" id="2_heko4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtalr"]
+radius = 36.1248
+
+[node name="Moon" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_k8gyx")
+
+[node name="Art" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_heko4")
+
+[node name="Art2" type="Sprite2D" parent="Art"]
+modulate = Color(0, 0, 0, 0.196078)
+position = Vector2(88, -20)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_heko4")
+
+[node name="Art3" type="Sprite2D" parent="Art"]
+modulate = Color(0, 0, 0, 0.196078)
+position = Vector2(-4.76837e-07, 84)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_heko4")
+
+[node name="Art4" type="Sprite2D" parent="Art"]
+modulate = Color(0, 0, 0, 0.196078)
+position = Vector2(-44, -40)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_heko4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vtalr")

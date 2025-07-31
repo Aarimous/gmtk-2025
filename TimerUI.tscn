@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c55e1q8nkic21"]
+
+[ext_resource type="Script" uid="uid://6amkmdk0y708" path="res://TimerUI.gd" id="1_m6xn5"]
+[ext_resource type="Theme" uid="uid://r2n3lh52w8wh" path="res://Theme.tres" id="2_521m4"]
+
+[node name="TimerUI" type="MarginContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 99.0
+grow_horizontal = 0
+mouse_filter = 2
+script = ExtResource("1_m6xn5")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_521m4")
+theme_override_font_sizes/font_size = 48
+text = "1s"
+horizontal_alignment = 1

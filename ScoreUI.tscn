@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://2roi1lyfn6nc"]
+
+[ext_resource type="Script" uid="uid://qjcv0f8uwtms" path="res://ScoreUI.gd" id="1_vs014"]
+[ext_resource type="Theme" uid="uid://r2n3lh52w8wh" path="res://Theme.tres" id="2_socno"]
+
+[node name="ScoreUI" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 99.0
+grow_horizontal = 2
+mouse_filter = 2
+script = ExtResource("1_vs014")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_socno")
+theme_override_font_sizes/font_size = 72
+text = "10000"
+horizontal_alignment = 1

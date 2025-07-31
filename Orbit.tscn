@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://4go7v5duek0k"]
+[gd_scene load_steps=6 format=3 uid="uid://4go7v5duek0k"]
 
 [ext_resource type="Script" uid="uid://bpnmdv4x0nmay" path="res://Orbit.gd" id="1_ni1xh"]
+[ext_resource type="Script" uid="uid://c1ybwl5dkio1k" path="res://OrbitLine.gd" id="2_x13vw"]
 
-[sub_resource type="Animation" id="Animation_46dnm"]
+[sub_resource type="Animation" id="Animation_x13vw"]
 resource_name = "Rotate"
-length = 30.0
+length = 60.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -13,13 +14,13 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 30),
+"times": PackedFloat32Array(0, 60),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -6.28319]
+"values": [0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_ni1xh"]
+[sub_resource type="Animation" id="Animation_lbg8u"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,17 +35,23 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x13vw"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2k7w0"]
 _data = {
-&"RESET": SubResource("Animation_ni1xh"),
-&"Rotate": SubResource("Animation_46dnm")
+&"RESET": SubResource("Animation_lbg8u"),
+&"Rotate": SubResource("Animation_x13vw")
 }
 
 [node name="Orbit" type="Node2D"]
 script = ExtResource("1_ni1xh")
 
+[node name="OrbitLine" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_x13vw")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_x13vw")
+&"": SubResource("AnimationLibrary_2k7w0")
 }
 autoplay = "Rotate"
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
